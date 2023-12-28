@@ -88,11 +88,30 @@ namespace Practice_Linq
         }
 
         // Запит 3
+        //static void Query3(List<FootballGame> games)
+        //{
+        //    //Query 3: Вивести всі домашні матчі збірної Франції за 2021 рік, де вона зіграла у нічию.
+
+        //    var selectedGames = games.Where(game => game.Home_team == "France" && game.Date.Year == 2021 && game.Home_score == game.Away_score);
+
+        //    // Перевірка
+        //    Console.WriteLine("\n======================== QUERY 3 ========================");
+        //    foreach (var game in selectedGames)
+        //    {
+        //        Console.WriteLine($"{game.Date:dd.MM.yyyy} {game.Home_team} - {game.Away_team}, Score: {game.Home_score} - {game.Away_score}, Country: {game.Country}");
+        //    }
+        //    // див. приклад як має бути виведено:
+        //}
+
         static void Query3(List<FootballGame> games)
         {
-            //Query 3: Вивести всі домашні матчі збірної Франції за 2021 рік, де вона зіграла у нічию.
+            // Query 3: Вивести всі домашні матчі збірної Франції за 2021 рік, де вона зіграла у нічию (1-1).
 
-            var selectedGames = games.Where(game => game.Home_team == "France" && game.Date.Year == 2021 && game.Home_score == game.Away_score);
+            var selectedGames = games
+                .Where(game => game.Home_team == "France" &&
+                               game.Date.Year == 2021 &&
+                               game.Home_score == 1 &&
+                               game.Away_score == 1);
 
             // Перевірка
             Console.WriteLine("\n======================== QUERY 3 ========================");
@@ -101,9 +120,8 @@ namespace Practice_Linq
                 Console.WriteLine($"{game.Date:dd.MM.yyyy} {game.Home_team} - {game.Away_team}, Score: {game.Home_score} - {game.Away_score}, Country: {game.Country}");
             }
             // див. приклад як має бути виведено:
-
-
         }
+
 
         // Запит 4
         static void Query4(List<FootballGame> games)
